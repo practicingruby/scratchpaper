@@ -28,7 +28,7 @@ module ScratchPaper
     when ActiveRecord::Relation
       st(data.map { |r| r.attributes.to_a })
     when ActiveRecord::Base
-      st(r.attributes.to_a)
+      st(data.attributes.to_a)
     end
   end
 end
