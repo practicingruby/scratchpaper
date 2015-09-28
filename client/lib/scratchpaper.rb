@@ -23,7 +23,7 @@ module ScratchPaper
     scratch_note("list", data)
   end
 
-  def sr(ar)
+  def sr(data)
     case data
     when ActiveRecord::Relation
       st(data.map { |r| r.attributes.to_a })
