@@ -1,5 +1,6 @@
-require "slim"
-require "sinatra"
+require "bundler"
+Bundler.require
+
 require "sinatra/reloader"
 require "pstore"
 require "json"

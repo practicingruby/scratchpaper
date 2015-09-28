@@ -1,21 +1,25 @@
 require "restclient"
 require "json"
 
-def scratch_note(type, message)
-  RestClient.post("http://#{ENV["SCRATCHPAPER_URL"]}/#{ENV["SCRATCHPAPER_KEY"]}",
-                  :data => [type, message].to_json)
+module ScratchPaper
+  module_function
 
-  :ok
-end
+  def scratch_note(type, message)
+    RestClient.post("http://#{ENV["SCRATCHPAPER_URL"]}/#{ENV["SCRATCHPAPER_KEY"]}",
+                    :data => [type, message].to_json)
 
-def sp(data)
-  scratch_note("text", data)
-end
+    :ok
+  end
 
-def st(data)
-  scratch_note("table", data)
-end
+  def sp(data)
+    scratch_note("text", data)
+  end
 
-def sl(data)
-  scratch_note("list", data)
+  def st(data)
+    scratch_note("table", data)
+  end
+
+  def sl(data)
+    scratch_note("list", data)
+  end
 end
