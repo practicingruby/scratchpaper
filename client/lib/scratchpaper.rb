@@ -22,4 +22,13 @@ module ScratchPaper
   def sl(data)
     scratch_note("list", data)
   end
+
+  def sr(ar)
+    case data
+    when ActiveRecord::Relation
+      st(data.map { |r| r.attributes.to_a })
+    when ActiveRecord::Base
+      st(r.attributes.to_a)
+    end
+  end
 end
